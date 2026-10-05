@@ -13,9 +13,9 @@
 Nuestro proyecto busca facilitar encontrar estacionamiento, y evitar vueltas innecesarias buscando
 
 ### Estado del Proyecto
-- **Versión actual:** v3.0
+- **Versión actual:** v1.0
 - **Última actualización:** 05/10
-- **Estado:** Prototipo final
+- **Estado:** Prototipo Inicial
 
 ---
 
