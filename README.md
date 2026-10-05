@@ -5,15 +5,15 @@
   - Santiago Marín - Rol 3
   - Nombre 4 - Rol 4
   
-- **ODS Seleccionado:** [Número y nombre]
-- **Problema a resolver:** [Descripción breve]
+- **ODS Seleccionado:** ODS 11 Ciudades y comunidades sostenibles
+- **Problema a resolver:** Demora en estacionar UAI
 
 ### Descripción del Proyecto
-[Breve descripción de la solución IoT propuesta]
+Nuestro proyecto busca facilitar encontrar estacionamiento, y evitar vueltas innecesarias buscando
 
 ### Estado del Proyecto
 - **Versión actual:** v3.0
-- **Última actualización:** [Fecha]
+- **Última actualización:** 05/10
 - **Estado:** Prototipo final
 
 ---
