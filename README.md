@@ -6,7 +6,8 @@
   - Joaquín Paiva - Rol 4
   - Mariano Pedrosa - Rol 5
   
-- **ODS Seleccionado:** ODS 11 Ciudades y comunidades sostenibles
+- **ODS Seleccionado:** El proyecto se vincula con el Objetivo de Desarrollo Sostenible (ODS) 11: Ciudades y comunidades sostenibles, al proponer una solución tecnológica orientada a mejorar la movilidad, optimizar el uso de la infraestructura y contribuir a la reducción de recorridos vehiculares innecesarios.
+
 - **Problema a resolver:**
 En la Universidad Adolfo Ibáñez, Campus Peñalolén, los estudiantes que se trasladan en automóvil enfrentan dificultades para encontrar estacionamientos disponibles, especialmente durante los horarios de mayor demanda. Esta situación genera recorridos innecesarios dentro del campus, aumenta los tiempos de búsqueda y contribuye a la congestión vehicular.
 
@@ -15,7 +16,13 @@ El problema se debe, principalmente, a la falta de información en tiempo real s
 Por ello, surge la necesidad de implementar una solución tecnológica que permita identificar y comunicar la disponibilidad de estacionamientos, con el objetivo de reducir los tiempos de búsqueda, optimizar el uso de los espacios y contribuir a una movilidad más eficiente y sostenible dentro de la universidad.
 
 ### Descripción del Proyecto
-Nuestro proyecto busca facilitar encontrar estacionamiento, y evitar vueltas innecesarias buscando
+Nuestro proyecto consiste en el desarrollo de un sistema de estacionamiento inteligente que busca facilitar la identificación de espacios disponibles en la Universidad Adolfo Ibáñez, Campus Peñalolén, reduciendo los tiempos de búsqueda y los recorridos innecesarios de los conductores.
+
+Para ello, desarrollamos un prototipo funcional que utiliza un sensor ultrasónico HC-SR04 para medir la distancia y detectar la presencia de un vehículo en un espacio de estacionamiento. Esta información es procesada por un microcontrolador ESP32, programado mediante Arduino IDE, que determina si el espacio se encuentra libre u ocupado según un umbral de distancia previamente establecido.
+
+El estado del estacionamiento se refleja automáticamente en un display de siete segmentos, que muestra la cantidad de espacios ocupados. De esta manera, el sistema permite visualizar los cambios de ocupación en tiempo real, sin necesidad de intervención manual.
+
+Actualmente, el prototipo permite monitorear un estacionamiento a pequeña escala. Como proyección futura, se contempla incorporar conectividad Wi-Fi y ampliar el sistema a múltiples espacios, permitiendo consultar su disponibilidad de manera remota.
 
 ### Estado del Proyecto
 - **Versión actual:** v1.0
