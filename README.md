@@ -3,11 +3,16 @@
   - Sebastian Cáceres - Rol 1
   - Maximiliano Riffo- Rol 2
   - Santiago Marín - Rol 3
-  - Joaquín Paiva p - Rol 4
+  - Joaquín Paiva - Rol 4
   - Mariano Pedrosa - Rol 5
   
 - **ODS Seleccionado:** ODS 11 Ciudades y comunidades sostenibles
-- **Problema a resolver:** Demora en estacionar UAI
+- **Problema a resolver:**
+En la Universidad Adolfo Ibáñez, Campus Peñalolén, los estudiantes que se trasladan en automóvil enfrentan dificultades para encontrar estacionamientos disponibles, especialmente durante los horarios de mayor demanda. Esta situación genera recorridos innecesarios dentro del campus, aumenta los tiempos de búsqueda y contribuye a la congestión vehicular.
+
+El problema se debe, principalmente, a la falta de información en tiempo real sobre la disponibilidad de estacionamientos, lo que obliga a los conductores a recorrer distintos sectores sin saber dónde existen espacios libres.
+
+Por ello, surge la necesidad de implementar una solución tecnológica que permita identificar y comunicar la disponibilidad de estacionamientos, con el objetivo de reducir los tiempos de búsqueda, optimizar el uso de los espacios y contribuir a una movilidad más eficiente y sostenible dentro de la universidad.
 
 ### Descripción del Proyecto
 Nuestro proyecto busca facilitar encontrar estacionamiento, y evitar vueltas innecesarias buscando
