@@ -1,107 +1,34 @@
 # Iteración 1 - Concepto Inicial
 
 ## Información General
-
-**Fecha:** [XX/XX/2025]  
+**Fecha:** 05/10/2026  
 **Versión:** v1.0  
-**Estado:** Prototipo alpha - Prueba de concepto  
-**Avance asociado:** Planificación inicial / Avance #1
+**Estado:** Concepto  
+**Avance asociado:** Avance #1
 
 ---
 
 ## Descripción
-
-Primera versión del prototipo, enfocada en validar la factibilidad técnica del concepto.
-
-**Objetivo de esta iteración:**
-- Probar conexión de sensores básicos
-- Validar comunicación con microcontrolador
-- Demostrar concepto de actuación
-- Circuito básico en protoboard
-
----
-
-## Componentes Utilizados
-
-### Hardware
-- Microcontrolador: [Modelo]
-- Sensores:
-  - [Sensor 1]
-  - [Sensor 2]
-- Actuadores:
-  - [Actuador 1]
-- Otros: [Lista]
-
-### Software
-- IDE: Arduino IDE
-- Librerías: [Lista]
-- Versión código: v1.0
-
----
-
-## Fotos del Prototipo
-
-Incluir en esta carpeta:
-- `v1_circuito_protoboard.jpg`
-- `v1_vista_general.jpg`
-- `v1_detalle_conexiones.jpg`
-
----
-
-## Resultados de Testing Inicial
-
-### Funcionalidad Lograda
-✅ [Función 1]  
-✅ [Función 2]  
-❌ [Función 3 - no funcionó]
-
-### Problemas Identificados
-
-1. **Problema 1:**
-   - Descripción: [Detalles]
-   - Causa probable: [Análisis]
-   - Solución propuesta: [Plan]
-
-2. **Problema 2:**
-   - Descripción: [Detalles]
-   - Causa probable: [Análisis]
-   - Solución propuesta: [Plan]
-
----
-
-## Aprendizajes
-
-### Técnicos
-- [Aprendizaje 1]
-- [Aprendizaje 2]
-
-### De Diseño
-- [Aprendizaje 1]
-- [Aprendizaje 2]
-
----
-
-## Plan para Iteración 2
-
-### Mejoras Planificadas
-
-**Hardware:**
-- [ ] [Mejora 1]
-- [ ] [Mejora 2]
-
-**Software:**
-- [ ] [Mejora 1]
-- [ ] [Mejora 2]
-
-**Diseño:**
-- [ ] Iniciar diseño de encapsulado
-- [ ] Mejorar ruteo de cables
-
----
+Definición del problema (demora para estacionar en el Campus Peñalolén, ODS 11), investigación del contexto y propuesta conceptual: un sensor por espacio que indique en tiempo real si está libre u ocupado.
 
 ## Archivos en esta Carpeta
+- `v1_referencia_conceptual.jpg` — Imagen de referencia usada para la idea inicial (3 espacios, sensores en un muro, display con espacios disponibles).
+- `v1_modelo3d_inicial.step` — Primer modelo 3D (2 espacios, sensores por fuera del muro, bandeja de electrónica abierta).
+- `v1_render_modelo_inicial.png` — Render del primer modelo.
 
-- `v1_codigo.ino` - Código de esta versión
-- `v1_esquema.png` - Esquema del circuito
-- `v1_fotos/` - Fotografías del prototipo
-- `v1_notas.txt` - Notas adicionales del equipo
+## Problemas Identificados
+
+1. **Sensor de movimiento**
+   - Descripción: la primera idea fue un sensor de movimiento en el centro del espacio.
+   - Causa: un auto estacionado no se mueve, así que el sensor dejaría de detectarlo; además, en el piso el auto lo pisaría.
+   - Solución propuesta: sensor ultrasónico en un muro trasero (implementado en v2).
+
+2. **Modelo 3D sin encapsulado real**
+   - Descripción: la electrónica quedaba en una bandeja abierta de 22 mm de alto.
+   - Causa: no se habían considerado las medidas reales ni los cables.
+   - Solución propuesta: caja cerrada con tapa, diseñada con las medidas de los componentes (implementado en v2).
+
+## Plan para Iteración 2
+- [x] Armar el circuito con ESP32 y HC-SR04
+- [x] Agregar conectividad para mostrar el estado fuera de la maqueta
+- [x] Rediseñar el encapsulado

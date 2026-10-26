@@ -1,89 +1,87 @@
 # Software - Documentación
 
 ## Contenido
-Esta carpeta contiene todo el código y documentación del software del proyecto.
-
-### 📁 Carpetas
-
-#### `src/`
-Código fuente del proyecto (.ino para Arduino/ESP32)
-
-#### `librerias/`
-Librerías adicionales necesarias (no incluidas en Arduino IDE)
-
-#### `docs/`
-Documentación técnica del software
+- `src/codigosensorwifi/codigosensorwifi.ino` — Código del ESP32 (v2)
+- `librerias/` — Librerías utilizadas
+- `docs/` — Funcionamiento, manual de instalación y operación, imágenes del código
 
 ---
 
 ## Stack Tecnológico
 
-**Plataforma:** Arduino / ESP32  
-**Lenguaje:** C/C++  
+**Plataforma:** ESP32 Dev Module  
+**Lenguaje:** C/C++ (Arduino) + HTML/CSS/JavaScript para la página web  
 **IDE:** Arduino IDE 2.x  
 **Librerías principales:**
-- [Librería 1] - Versión X.X
-- [Librería 2] - Versión X.X
-- [Librería 3] - Versión X.X
+- `WiFi.h` — incluida en el paquete ESP32 (crea la red WiFi)
+- `WebServer.h` — incluida en el paquete ESP32 (sirve la página web)
 
 ---
 
 ## Instalación y Configuración
 
 ### 1. Instalar Arduino IDE
-[Instrucciones de instalación]
+Descargar Arduino IDE 2.x desde https://www.arduino.cc/en/software
 
-### 2. Configurar ESP32/Arduino
-[Pasos de configuración]
+### 2. Configurar ESP32
+En Arduino IDE: *Herramientas → Placa → Gestor de placas*, buscar **esp32** (Espressif Systems) e instalar. Luego seleccionar la placa **ESP32 Dev Module** y el puerto correspondiente.
 
 ### 3. Instalar Librerías
-```bash
-# Copiar librerías personalizadas
-cp -r librerias/* ~/Arduino/libraries/
-```
+No requiere librerías externas: `WiFi.h` y `WebServer.h` vienen con el paquete ESP32.
 
 ### 4. Cargar Código
-1. Abrir `src/main.ino`
+1. Abrir `src/codigosensorwifi/codigosensorwifi.ino`
 2. Seleccionar placa y puerto
-3. Compilar y subir
+3. Compilar y subir (si el botón BOOT no responde, hacer puente GPIO0–GND durante la carga)
+4. Abrir el Monitor Serie a **115200 baudios** para ver la IP y las lecturas
 
 ---
 
 ## Configuración de Parámetros
 
-Editar las siguientes constantes en el código:
-
 ```cpp
-// WiFi
-#define WIFI_SSID "tu_red"
-#define WIFI_PASS "tu_password"
+// Pines
+#define TRIG 18
+#define ECHO 19
+#define DISPLAY 25
 
-// Sensores
-#define SENSOR_PIN 4
-#define SAMPLE_RATE 1000
+// Red WiFi creada por el ESP32
+const char* ssid = "Estacionamiento_UAI";
+const char* password = "parking123";
 
-// Otros parámetros
+// Umbral de ocupación (en loop): ocupado = (distancia < 15);
 ```
 
 ---
 
 ## Arquitectura del Software
 
-[Incluir diagrama de flujo o arquitectura]
+```
+loop() cada ~200 ms
+  ├─ server.handleClient()      → atiende al celular
+  ├─ Pulso TRIG 10 µs → pulseIn(ECHO)  → tiempo de eco
+  ├─ distancia = tiempo × 0.0343 / 2   (cm)
+  ├─ ocupado = distancia < 15
+  ├─ GPIO25 HIGH/LOW            → segmento del display
+  └─ Serial.print(...)          → registro en Monitor Serie
+
+Celular (navegador) cada 1 s
+  └─ GET /estado → JSON {"ocupado":…, "valida":…, "distancia":…}
+       → muestra LIBRE (verde) / OCUPADO (rojo) / SIN LECTURA (naranjo)
+```
 
 ### Módulos Principales
-1. **Inicialización** - Setup del sistema
-2. **Lectura de Sensores** - Captura de datos
-3. **Procesamiento** - Análisis y decisiones
-4. **Actuación** - Control de actuadores
-5. **Comunicación** - Envío de datos
+1. **Inicialización** (`setup`) — Pines, red WiFi en modo punto de acceso, rutas del servidor
+2. **Lectura de Sensores** — Pulso de disparo y medición del eco con `pulseIn` (timeout 30 ms)
+3. **Procesamiento** — Conversión a centímetros y decisión ocupado/libre con umbral de 15 cm
+4. **Actuación** — Encendido/apagado del segmento del display (GPIO25)
+5. **Comunicación** — Página web (`/`) y estado en JSON (`/estado`) por WiFi
 
 ---
 
-## API / Endpoints (si aplica)
+## API / Endpoints
 
 | Endpoint | Método | Descripción |
 |----------|--------|-------------|
-| `/status` | GET | Estado del sistema |
-| `/data` | GET | Datos de sensores |
-| `/control` | POST | Control de actuadores |
+| `/` | GET | Página web del estado del estacionamiento |
+| `/estado` | GET | Estado en JSON: `ocupado` (bool), `valida` (bool), `distancia` (cm) |

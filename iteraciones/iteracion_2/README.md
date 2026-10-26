@@ -1,23 +1,15 @@
-# Iteración 2 - Primera Mejora Significativa
+# Iteración 2 - Prototipo Alpha IoT
 
 ## Información General
-
-**Fecha:** [XX/XX/2025]  
+**Fecha:** 19/10/2026  
 **Versión:** v2.0  
-**Estado:** Prototipo funcional mejorado  
+**Estado:** Prototipo funcional (1 espacio)  
 **Avance asociado:** Avance #2
 
 ---
 
 ## Descripción
-
-Segunda versión del prototipo, incorporando feedback de la iteración 1 y del Avance #1. Incluye mejoras significativas en funcionalidad y primeros pasos en diseño de encapsulado.
-
-**Objetivos de esta iteración:**
-- Corregir problemas identificados en v1
-- Agregar funcionalidades adicionales
-- Iniciar diseño 3D del encapsulado
-- Realizar primeras pruebas con usuarios
+Prototipo con un sensor HC-SR04 y un ESP32 que detecta si hay un objeto a menos de 15 cm, enciende un segmento del display como indicador de OCUPADO y publica el estado en una página web a través de su propia red WiFi.
 
 ---
 
@@ -25,129 +17,72 @@ Segunda versión del prototipo, incorporando feedback de la iteración 1 y del A
 
 ### Hardware
 **Agregado:**
-- [Componente nuevo 1]
-- [Componente nuevo 2]
+- ESP32 Dev Module (microcontrolador con WiFi)
+- Sensor ultrasónico HC-SR04
+- Divisor de voltaje en ECHO (3 × 10 kΩ)
+- Display de 7 segmentos en un segundo protoboard
+- Power bank 5000 mAh
 
 **Modificado:**
-- [Cambio 1] - Razón: [Justificación]
-- [Cambio 2] - Razón: [Justificación]
-
-**Removido:**
-- [Componente removido] - Razón: [Justificación]
+- Sensor de movimiento → ultrasónico — Razón: detectar autos detenidos.
 
 ### Software
 **Nuevas funcionalidades:**
-- [Feature 1]
-- [Feature 2]
-
-**Optimizaciones:**
-- [Optimización 1]
-- [Optimización 2]
-
-**Bugs corregidos:**
-- [Bug 1 de v1]
-- [Bug 2 de v1]
+- Lectura de distancia y decisión ocupado/libre (umbral 15 cm)
+- Red WiFi propia (`Estacionamiento_UAI`) y página web en `192.168.4.1`
+- Estado en JSON (`/estado`) y actualización automática cada 1 segundo
 
 ### Diseño Mecánico
-- Primer diseño de encapsulado en Fusion 360
-- Prototipo impreso en 3D
-- Integración de componentes en carcasa
+- Encapsulado rediseñado en 3D (ver `diseno_3d/`); no se imprimió (no requerido en el Avance #2).
 
 ---
 
-## Fotos del Prototipo v2
+## Problemas encontrados y soluciones (registro del armado)
 
-Incluir en esta carpeta:
-- `v2_prototipo_completo.jpg`
-- `v2_circuito_integrado.jpg`
-- `v2_encapsulado_inicial.jpg`
-- `v2_testing_usuario.jpg`
+| Problema | Solución |
+|---|---|
+| El botón BOOT del ESP32 estaba defectuoso y no se podía cargar el código | Puente temporal GPIO0–GND durante la carga; se retira al ejecutar |
+| La salida ECHO del HC-SR04 entrega 5 V y el ESP32 acepta 3,3 V | Divisor de voltaje: 10 kΩ de ECHO a GPIO19 y 20 kΩ (2 × 10 kΩ) de GPIO19 a GND (≈ 3,3 V) |
+| Había que definir cuándo un espacio está ocupado | Pruebas con el Monitor Serie acercando y alejando un objeto; se fijó el umbral en 15 cm |
+| El display no cabía en el protoboard principal | Se montó en un segundo protoboard transparente |
+| Un segmento del display no encendía | Se probaron los segmentos uno por uno; había una conexión fuera de fila y se reubicó la resistencia |
+| No alcanzaban los cables para formar números | Se usa un solo segmento como indicador (encendido = ocupado) |
+| El segmento estaba conectado fijo a 3V3 (siempre encendido) | Se pasó a controlarlo desde GPIO25 según la lectura del sensor |
+| Solo se veían los datos por cable (Monitor Serie) | El ESP32 crea su propia red WiFi y muestra el estado en el celular |
+| No se pudo integrar el segundo sensor | Faltan cables macho-hembra para los pines del ESP32; queda para v3 |
+
+`v2_notas_armado.pdf` contiene el registro detallado del armado (escrito antes de agregar la conectividad WiFi).
 
 ---
 
 ## Resultados de Testing
 
 ### Funcionalidad Lograda
-✅ [Función 1]  
-✅ [Función 2]  
-✅ [Función 3]  
-⚠️ [Función 4 - parcial]
+✅ Detección de objeto y decisión ocupado/libre  
+✅ Indicador físico (segmento del display)  
+✅ Página web en el celular por WiFi propia del ESP32  
+⚠️ Segundo espacio: sensor adquirido, no integrado  
+⚠️ Número de espacios disponibles: pendiente
 
-### Feedback del Avance #2
-
-**Comentarios del profesor/ayudante:**
-1. [Comentario 1]
-   - Acción: [Plan de mejora para v3]
-
-2. [Comentario 2]
-   - Acción: [Plan de mejora para v3]
-
-### Testing con Usuarios (2-3 personas)
-
-**Resultados cuantitativos:**
-- Facilidad de uso promedio: [X/5]
-- Satisfacción promedio: [X/5]
-
-**Feedback cualitativo:**
-- Positivo: [Comentarios]
-- A mejorar: [Comentarios]
-
----
-
-## Problemas Pendientes
-
-1. **Problema 1:**
-   - Descripción: [Detalles]
-   - Prioridad: Alta/Media/Baja
-   - Plan para v3: [Solución propuesta]
-
-2. **Problema 2:**
-   - Descripción: [Detalles]
-   - Prioridad: Alta/Media/Baja
-   - Plan para v3: [Solución propuesta]
-
----
-
-## Comparación v1 vs v2
-
-| Aspecto | v1 | v2 | Mejora |
-|---------|----|----|--------|
-| Sensores funcionales | 2/3 | 3/3 | ✅ |
-| Tiempo de respuesta | 500ms | 200ms | ↓60% |
-| Consumo energético | 250mA | 180mA | ↓28% |
-| Encapsulado | ❌ | Prototipo | ✅ |
-| Usuarios testeados | 0 | 2 | ✅ |
+### Evidencia
+Capturas de la página web en `testing/evidencias/fotos/`: **LIBRE** con 50,1 cm y **OCUPADO** con 5,0 cm.
 
 ---
 
 ## Plan para Iteración 3 (Versión Final)
 
-### Mejoras Críticas
-
 **Hardware:**
-- [ ] [Mejora crítica 1]
-- [ ] [Mejora crítica 2]
+- [ ] Integrar el segundo HC-SR04 (TRIG GPIO32, ECHO GPIO33, con su propio divisor)
+- [ ] Conectores seguros (cables macho-hembra o placa soldable)
 
 **Software:**
-- [ ] [Optimización 1]
-- [ ] [Feature faltante]
+- [ ] Leer ambos sensores en secuencia y calcular espacios disponibles (2 − ocupados)
+- [ ] Mostrar el número en el display y en la página
 
 **Diseño:**
-- [ ] Refinar encapsulado
-- [ ] Mejorar accesibilidad
-- [ ] Finalizar sistema de montaje
+- [ ] Guardar el modelo como `.f3d` y generar planos técnicos
+- [ ] Evaluar impresión 3D del encapsulado
 
 **Testing:**
-- [ ] Testear con 5+ usuarios
-- [ ] Validar métricas ODS
-- [ ] Instalación en contexto real
-
----
-
-## Archivos en esta Carpeta
-
-- `v2_codigo.ino` - Código de esta versión
-- `v2_esquema.png` - Esquema del circuito actualizado
-- `v2_modelo3d.f3d` - Primer diseño en Fusion 360
-- `v2_fotos/` - Fotografías del prototipo
-- `v2_feedback.pdf` - Compilación de comentarios recibidos
+- [ ] Prueba de estabilidad de 5+ minutos y precisión de las lecturas
+- [ ] Testing con 5+ usuarios

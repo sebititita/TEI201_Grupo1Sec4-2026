@@ -1,60 +1,31 @@
 # Archivos Fusion 360
 
-## Archivos Requeridos
+## `modelo_v2_ESP32.step`
+Ensamble completo del prototipo v2 (formato STEP, se abre directamente en Fusion 360 con *Archivo → Abrir*). Cada pieza tiene nombre propio y aparece como componente separado.
 
-### `modelo_completo_v3.f3d`
-Archivo principal con **historial de cambios completo**
-
-**DEBE INCLUIR:**
--  Todos los componentes modelados
--  Ensamble completo funcional
--  Historial de diseño (timeline)
--  Materiales asignados
--  Constraints y relaciones
-
----
-
-## Estructura del Modelo
-
-### Componentes (Components)
+### Componentes del ensamble
 ```
-Ensamble_Principal
-├── Encapsulado_Inferior
-├── Encapsulado_Superior
-├── ESP32_DevKit
-├── Sensor_DHT22
-├── LED_Indicador
-├── Soporte_Bateria
-├── Bracket_Montaje
-└── Tornilleria
+Estacionamiento_v3_ESP32
+├── 01_Base
+├── 02_Encapsulado_muro_frontal (agujeros sensores + ventana display)
+├── 03_Encapsulado_lateral_izq
+├── 04_Encapsulado_lateral_der_con_pasacable_USB
+├── 05_Encapsulado_trasera_con_ventilacion
+├── 06_Tapa_removible_atornillada
+├── Poste_tapa_1..4
+├── HC_SR04_P1 / HC_SR04_P2 (placa, emisor, receptor, pines)
+├── Display_7seg (cuerpo, frente, pines)
+├── ESP32 (placa, módulo WiFi, conector USB, headers, separadores)
+├── Protoboard_400 + resistencias
+├── Lineas, topes de rueda e identificación P1/P2
+└── Auto_referencia_HotWheels (solo referencia de escala)
 ```
-
-### Uniones (Joints)
-Documentar las juntas principales y sus restricciones
-
-### Parámetros
-Listar parámetros principales utilizados:
-- `ancho_total = 120mm`
-- `alto_total = 80mm`
-- `grosor_pared = 2mm`
-
----
-
-## Instrucciones de Apertura
-
-1. Abrir Fusion 360
-2. File > Open > Seleccionar archivo `.f3d`
-3. Verificar que todas las referencias están cargadas
-4. Revisar timeline para ver historial
-
----
 
 ## Versiones
 
 | Versión | Fecha | Cambios Principales |
 |---------|-------|---------------------|
-| v3.0 | [Fecha] | Versión final para Avance #3 |
-| v2.1 | [Fecha] | Ajustes post Avance #2 |
-| v1.0 | [Fecha] | Primera versión funcional |
+| v2.0 | 19/10/2026 | Caja cerrada con tapa, sensores por dentro del muro, medidas reales, ESP32 con agujero USB |
+| v1.0 | 05/10/2026 | Primer modelo: muro con sensores por fuera y bandeja de electrónica abierta (ver `iteraciones/iteracion_1/`) |
 
----
+**Pendiente:** guardar el ensamble como `.f3d` con historial (timeline) para el Avance #3.
