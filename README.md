@@ -1,12 +1,13 @@
 ### Información del Equipo
 - **Integrantes:**
-  - Sebastian Cáceres - Rol 1
-  - Maximiliano Riffo- Rol 2
-  - Santiago Marín - Rol 3
-  - Joaquín Paiva - Rol 4
-  - Mariano Pedrosa - Rol 5
+  - Sebastian Cáceres - Diseño 3D y encapsulado
+  - Maximiliano Riffo- Hardware y circuito
+  - Santiago Marín - Programación (software)
+  - Joaquín Paiva - Documentación y repositorio
+  - Mariano Pedrosa - Testing e investigación
   
-- **ODS Seleccionado:** ODS 11 Ciudades y comunidades sostenibles
+- **ODS Seleccionado:** El proyecto se vincula con el Objetivo de Desarrollo Sostenible (ODS) 11: Ciudades y comunidades sostenibles, al proponer una solución tecnológica orientada a mejorar la movilidad, optimizar el uso de la infraestructura y contribuir a la reducción de recorridos vehiculares innecesarios.
+
 - **Problema a resolver:**
 En la Universidad Adolfo Ibáñez, Campus Peñalolén, los estudiantes que se trasladan en automóvil enfrentan dificultades para encontrar estacionamientos disponibles, especialmente durante los horarios de mayor demanda. Esta situación genera recorridos innecesarios dentro del campus, aumenta los tiempos de búsqueda y contribuye a la congestión vehicular.
 
@@ -15,9 +16,13 @@ El problema se debe, principalmente, a la falta de información en tiempo real s
 Por ello, surge la necesidad de implementar una solución tecnológica que permita identificar y comunicar la disponibilidad de estacionamientos, con el objetivo de reducir los tiempos de búsqueda, optimizar el uso de los espacios y contribuir a una movilidad más eficiente y sostenible dentro de la universidad.
 
 ### Descripción del Proyecto
-Sistema IoT que detecta si un estacionamiento está **ocupado o libre** y lo informa en tiempo real. Un sensor ultrasónico HC-SR04 mide la distancia al vehículo; un ESP32 procesa la lectura (ocupado si la distancia es menor a 15 cm en la maqueta), enciende un indicador en un display de 7 segmentos y publica el estado en una **página web** a la que se accede desde el celular mediante una **red WiFi propia creada por el ESP32**.
+Nuestro proyecto consiste en el desarrollo de un sistema de estacionamiento inteligente que busca facilitar la identificación de espacios disponibles en la Universidad Adolfo Ibáñez, Campus Peñalolén, reduciendo los tiempos de búsqueda y los recorridos innecesarios de los conductores.
 
-En una implementación real, cada nodo (ESP32 + sensores) cubriría un grupo de espacios y se conectaría a la red WiFi del campus, enviando sus datos a una página central con el total de espacios disponibles. Para agregar espacios basta con instalar más nodos, sin cablear hasta un computador.
+Para ello, desarrollamos un prototipo funcional que utiliza un sensor ultrasónico HC-SR04 para medir la distancia y detectar la presencia de un vehículo en un espacio de estacionamiento. Esta información es procesada por un microcontrolador ESP32, programado mediante Arduino IDE, que determina si el espacio está **libre u ocupado** (ocupado si la distancia es menor a 15 cm en la maqueta).
+
+El estado se muestra de dos formas: un segmento del display de 7 segmentos se enciende cuando el espacio está ocupado, y el ESP32 publica el estado en una **página web** a la que se accede desde el celular, conectándose a una **red WiFi propia creada por el ESP32**. La página se actualiza cada segundo, sin intervención manual.
+
+Como proyección, en una implementación real cada nodo (ESP32 + sensores) cubriría un grupo de espacios y se conectaría a la red WiFi del campus, enviando sus datos a una página central con el total de espacios disponibles. Para agregar espacios basta con instalar más nodos, sin cablear hasta un computador.
 
 ### Estado del Proyecto
 - **Versión actual:** v2.0 — Prototipo Alpha IoT (Avance #2)
