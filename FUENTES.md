@@ -14,7 +14,7 @@ Las tres librerías vienen incluidas en el paquete de placas **esp32 de Espressi
 | `WebServer.h` | Incluida en el paquete esp32 instalado* | Servidor HTTP en el puerto 80: rutas `/`, `/estado`, `/historial` y `/descargar` (líneas 1011–1031) | https://github.com/espressif/arduino-esp32/tree/master/libraries/WebServer |
 | `LittleFS.h` | Incluida en el paquete esp32 instalado* | Sistema de archivos en la memoria flash: guarda `historial.csv` y `sesion.txt` (funciones `iniciarAlmacenamiento`, `guardarRegistro`, `enviarHistorial`, `descargarCSV`) | https://github.com/espressif/arduino-esp32/tree/master/libraries/LittleFS |
 
-\* Versión exacta del paquete esp32 usada para compilar: **[completar — Arduino IDE → Herramientas → Placa → Gestor de placas → "esp32"]**.
+\* Paquete usado para compilar: **"ESP32 boards"** instalado desde el Gestor de placas de Arduino IDE (arduino-esp32 de Espressif). El número de versión exacto no quedó registrado.
 
 El dashboard **no usa librerías web externas** (ni Chart.js ni CDN): el gráfico se dibuja con la API `canvas` estándar del navegador, porque el celular conectado a la red del ESP32 no tiene internet.
 

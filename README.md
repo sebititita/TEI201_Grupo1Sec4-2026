@@ -82,7 +82,7 @@ Librerías: `WiFi.h`, `WebServer.h` y `LittleFS.h`, todas incluidas en el paquet
 
 ## Usar el dashboard
 
-1. Alimentar el ESP32 (power bank por USB).
+1. Alimentar el ESP32 (power bank conectado por USB).
 2. En el celular o computador, conectarse a la red WiFi **`Estacionamiento_UAI`**, contraseña **`parking123`**.
 3. Abrir **http://192.168.4.1** en el navegador.
 4. Ver el estado (LIBRE en verde, OCUPADO en rojo, SIN LECTURA en naranjo), los indicadores y el gráfico de los últimos 60 registros.
@@ -97,7 +97,7 @@ El dashboard funciona sin internet: lo sirve el propio ESP32. Para una instalaci
 | Detección (20 pruebas) | 20/20 correctas (100 % en las condiciones probadas) |
 | Mayor error absoluto de distancia (5–30 cm) | 3 cm (a 20 cm) |
 | Tiempo de actualización del dashboard | ≈ 1 s (observado) |
-| Almacenamiento CSV | Funcional; el historial se mantiene al reiniciar (comprobado por el equipo) |
+| Almacenamiento CSV | Funcional: 365 registros en 10 sesiones; el historial se mantiene tras 9 reinicios |
 
 Protocolo, datos y análisis de fallas en [`testing/`](testing/).
 
@@ -108,7 +108,7 @@ Protocolo, datos y análisis de fallas en [`testing/`](testing/).
 - El CSV registra **segundos desde el encendido**, no fecha y hora reales (sin reloj ni internet).
 - El porcentaje y el tiempo ocupado del dashboard corresponden a la **sesión actual** (se reinician al apagar); el CSV sí conserva todas las sesiones.
 - El CSV se limita a ~180 KB para no llenar la memoria.
-- Se observaron lecturas atípicas puntuales del sensor; falta un filtro (mediana) o histéresis.
+- Se observaron lecturas atípicas, registros SIN LECTURA y alternancias cerca del umbral, que inflan el contador de ocupaciones. Falta un filtro (mediana) e histéresis.
 
 ## Mejoras futuras
 

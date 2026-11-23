@@ -56,6 +56,12 @@ Código definitivo del Avance 3: [`codigosensorwifi/codigosensorwifi.ino`](codig
 - **Botón:** descarga del CSV.
 - **Actualización:** estado cada **1 s**, gráfico cada **10 s**.
 
+### Capturas reales
+
+| | | |
+|---|---|---|
+| ![Estado](../testing/evidencias/dashboard_01_estado_indicadores.jpg) | ![Gráfico](../testing/evidencias/dashboard_02_grafico.jpg) | ![Info](../testing/evidencias/dashboard_03_grafico_info.jpg) |
+
 ## Endpoints
 
 | Ruta | Respuesta |

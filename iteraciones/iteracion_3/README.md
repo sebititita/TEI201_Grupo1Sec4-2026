@@ -10,7 +10,7 @@
 | Datos | Solo en tiempo real | **Historial en `historial.csv`** (LittleFS), persistente al reiniciar, descargable | La rúbrica exige almacenamiento; el historial permite medir el uso del espacio |
 | Información | LIBRE/OCUPADO + distancia | Espacios disponibles, % de ocupación, tiempo ocupado, n° de ocupaciones, gráfico | Convertir datos en información útil |
 | Encapsulado | Modelo 3D conceptual (caja tras un muro) | **Maqueta MDF 5,5 mm cortada con láser**: poste, caja del sensor con visera, caja central con tapa encastrada | Construcción rápida en el DEC; tapas desmontables para reparación |
-| Alimentación | Power bank | Power bank dentro de la caja central | Maqueta autónoma |
+| Alimentación | Power bank | Power bank por USB (la caja central tiene espacio para guardarlo) | Maqueta autónoma, sin computador |
 
 ## Problemas y soluciones
 
