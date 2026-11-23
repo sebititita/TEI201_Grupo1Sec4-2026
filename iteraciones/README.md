@@ -4,8 +4,8 @@
 ```
 iteraciones/
 ├── iteracion_1/    # Concepto inicial (Avance #1)
-├── iteracion_2/    # Prototipo Alpha IoT (Avance #2)  ← esta entrega
-└── iteracion_3/    # Versión final (Avance #3) — pendiente
+├── iteracion_2/    # Prototipo Alpha IoT (Avance #2): código, fotos, modelo 3D y capturas archivados
+└── iteracion_3/    # Prototipo IoT completo (Avance #3)
 ```
 
 `comparativa_v1_v2_diseno3d.png` muestra lado a lado el modelo 3D inicial y el actual.
@@ -16,12 +16,12 @@ iteraciones/
 
 | Aspecto | v1 (Avance #1) | v2 (Avance #2) | v3 |
 |---------|----|----|----|
-| **Fecha** | 05/10/2026 | 19/10/2026 | Pendiente |
-| **Sensores** | Idea: sensor de movimiento en el piso → cambiado a ultrasónico | 1 × HC-SR04 funcionando (2° sensor adquirido, no integrado) | 2 × HC-SR04 |
-| **Actuadores** | Display / LEDs (concepto) | 1 segmento del display = OCUPADO | Por definir |
-| **Conectividad** | Ninguna | WiFi propia del ESP32 + página web en el celular | WiFi del campus / página central |
-| **Encapsulado** | ❌ (bandeja abierta en el modelo) | Modelo 3D conceptual (caja cerrada) | Finalizado |
-| **Testing** | — | Pruebas del equipo (ver `testing/`) | 5+ usuarios |
+| **Fecha** | 05/10/2026 | 19/10/2026 | 23/11/2026 |
+| **Sensores** | Idea: sensor de movimiento en el piso → cambiado a ultrasónico | 1 × HC-SR04 funcionando (2° sensor adquirido, no integrado) | 1 × HC-SR04 (1 espacio) |
+| **Salida** | Display / LEDs (concepto) | 1 segmento del display = OCUPADO | Dashboard web (display retirado) |
+| **Conectividad** | Ninguna | WiFi propia del ESP32 + página web en el celular | WiFi propia + dashboard con historial CSV (LittleFS) |
+| **Encapsulado** | ❌ (bandeja abierta en el modelo) | Modelo 3D conceptual (caja cerrada) | Maqueta MDF cortada con láser, tapas desmontables |
+| **Testing** | — | Pruebas del equipo | Protocolo P1–P5: 20/20 detecciones, error máx. 3 cm, ≈1 s, CSV persistente |
 
 ---
 

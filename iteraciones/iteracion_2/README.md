@@ -33,7 +33,7 @@ Prototipo con un sensor HC-SR04 y un ESP32 que detecta si hay un objeto a menos 
 - Estado en JSON (`/estado`) y actualización automática cada 1 segundo
 
 ### Diseño Mecánico
-- Encapsulado rediseñado en 3D (ver `diseno_3d/`); no se imprimió (no requerido en el Avance #2).
+- Encapsulado rediseñado en 3D (ver `modelo3d_v2/` en esta carpeta); no se imprimió (no requerido en el Avance #2).
 
 ---
 
@@ -86,3 +86,15 @@ Capturas de la página web en `testing/evidencias/fotos/`: **LIBRE** con 50,1 cm
 **Testing:**
 - [ ] Prueba de estabilidad de 5+ minutos y precisión de las lecturas
 - [ ] Testing con 5+ usuarios
+
+---
+
+## Archivos archivados de esta iteración
+
+| Carpeta | Contenido |
+|---|---|
+| `codigo_v2/` | Código del ESP32 con display (`codigosensorwifi_v2_con_display.ino`) e imágenes del código |
+| `fotos_v2/` | Fotos del prototipo del Avance 2 (protoboard, display, sensor) |
+| `modelo3d_v2/` | Modelo 3D conceptual v2 (STEP) y renders |
+| `evidencias_v2/` | Capturas de la página web LIBRE / OCUPADO |
+| `v2_diagrama_conexiones_esp32.png` | Diagrama de conexiones v2 (incluye el display, retirado en la iteración 3) |
