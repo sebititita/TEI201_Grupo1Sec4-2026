@@ -4,18 +4,12 @@
 
 | Archivo | Contenido |
 |---|---|
-| `encapsulado.f3d` | Gemelo 3D en Fusion 360 — **pendiente de exportar** (ver abajo) |
+| [`maqueta_MDF_5.5mm_ensamble.f3d`](maqueta_MDF_5.5mm_ensamble.f3d) | Gemelo 3D en Fusion 360 (ensamble completo con componentes internos) |
 | [`maqueta_MDF_5.5mm_ensamble.step`](maqueta_MDF_5.5mm_ensamble.step) | Gemelo 3D completo: todas las piezas de MDF + ESP32, protoboard, power bank y HC-SR04 como volúmenes con sus medidas reales |
 | [`planos.pdf`](planos.pdf) | Planos técnicos (4 láminas): conjunto con vistas ortogonales y piezas cotadas, escala, tolerancias |
 | [`renders/`](renders/) | Vista exterior y vista interior con las tapas levantadas |
 | [`corte_laser/`](corte_laser/) | Archivos DXF que se cortaron en el DEC, mapa de piezas y el generador paramétrico |
 | [`version_real/`](version_real/) | Propuesta a tamaño real con materiales para exterior y energía solar |
-
-### Cómo obtener el `.f3d`
-
-1. Abrir Fusion 360 → **Archivo → Abrir → Abrir desde mi equipo** → `maqueta_MDF_5.5mm_ensamble.step`.
-2. Guardar el diseño en Fusion.
-3. **Archivo → Exportar → tipo "Archivos de Fusion 360 (.f3d)"** → guardar como `encapsulado.f3d` en esta carpeta.
 
 ## Gemelo 3D
 
