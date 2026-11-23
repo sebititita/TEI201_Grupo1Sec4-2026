@@ -49,7 +49,7 @@ El prototipo monitorea **un espacio**. No se ha medido todavía si reduce el tie
 ├── firmware/                  # Código del ESP32 (Arduino IDE)
 │   └── codigosensorwifi/codigosensorwifi.ino
 ├── hardware/                  # Esquemático, BOM, fotos, justificación de componentes
-├── diseño-3d/                 # Gemelo 3D (STEP/.f3d), planos PDF, renders, archivos de corte láser, versión real
+├── diseño-3d/                 # Gemelo 3D (.f3d y STEP), planos PDF, renders, archivos de corte láser, versión real
 ├── testing/                   # Protocolo de pruebas, resultados, datos CSV y evidencias
 ├── docs/                      # Reporte final y presentación
 └── iteraciones/               # Historial v1 → v2 → v3
@@ -112,7 +112,7 @@ Protocolo, datos y análisis de fallas en [`testing/`](testing/).
 
 ## Mejoras futuras
 
-- Un sensor por espacio y agrupación por sectores (ver la [versión real propuesta](diseño-3d/version_real/): un nodo con panel solar controla 4 espacios).
+- Un sensor por espacio y agrupación por sectores (ver la [versión real propuesta](diseño-3d/version_real/): un nodo con panel solar controla 4 espacios).
 - Envío de datos a un servidor o a la nube para consultar la disponibilidad antes de llegar.
 - Filtrado de lecturas y histéresis en el umbral de 15 cm.
 - Fecha y hora reales (NTP o módulo RTC) y almacenamiento de largo plazo.

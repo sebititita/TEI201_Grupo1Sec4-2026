@@ -8,6 +8,6 @@
 El contenido técnico está documentado en cada carpeta:
 - [`firmware/`](../firmware/)
 - [`hardware/`](../hardware/)
-- [`diseño-3d/`](../diseño-3d/)
+- [`diseño-3d/`](../diseño-3d/)
 - [`testing/`](../testing/)
 - [`FUENTES.md`](../FUENTES.md)

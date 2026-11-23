@@ -69,7 +69,7 @@ La maqueta es de **MDF de 5,5 mm cortado con láser en el DEC**, con uniones de 
   - una ranura para el USB;
   - un agujero de Ø12 mm para el cable del sensor.
 
-**Acceso para reparación:** las tapas de la caja central y de la caja del sensor van **encastradas sin pegamento**. Se levantan con la mano y dejan ver y cambiar los componentes, sin herramientas. Las piezas, medidas y archivos de corte están en [`../diseño-3d/`](../diseño-3d/).
+**Acceso para reparación:** las tapas de la caja central y de la caja del sensor van **encastradas sin pegamento**. Se levantan con la mano y dejan ver y cambiar los componentes, sin herramientas. Las piezas, medidas y archivos de corte están en [`../diseño-3d/`](../diseño-3d/).
 
 ## Fotografías
 
